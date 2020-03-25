@@ -10,4 +10,6 @@ public class FowChessApplication {
 		SpringApplication.run(FowChessApplication.class, args);
 	}
 
+	// ☧
+
 }
