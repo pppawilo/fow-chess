@@ -7,4 +7,11 @@ public class Queen extends Piece {
 		// TODO Auto-generated constructor stub
 	}
 
+	String getSymbol() {
+		if (getColor() == Color.WHITE) {
+			return "♕";
+		}
+		return "♛";
+	}
+
 }

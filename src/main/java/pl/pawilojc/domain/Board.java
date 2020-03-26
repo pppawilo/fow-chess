@@ -19,17 +19,27 @@ public class Board {
 	public Board() {
 		super();
 		this.squares = new Square[8][8];
+		initializeSquares(null);
 		initializeSquares(Color.WHITE);
 		initializeSquares(Color.BLACK);
+
 	}
 
 	boolean initializeSquares(Color color) {
-		int i = 0;
-		int j = 0;
+		int i = -1;
+		int j = -1;
+		if (color == null) {
+			for (int m = 0; m < squares.length; m++) {
+				for (int n = 0; n < squares[m].length; n++) {
+					squares[m][n] = new Square(null);
+				}
+			}
+			return true;
+		}
 		if (color == Color.WHITE) {
 			i = 7;
 			j = 6;
-		} else {
+		} else if (color == Color.BLACK) {
 			i = 0;
 			j = 1;
 		}
@@ -45,6 +55,17 @@ public class Board {
 			squares[j][k] = new Square(new Pawn(color));
 		}
 		return true;
+	}
+
+	void printToSystemOut() {
+
+		for (Square[] files : squares) {
+			for (Square square : files) {
+				System.out.print(square.toString() + " ");
+			}
+			System.out.println();
+		}
+
 	}
 
 }

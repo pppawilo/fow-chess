@@ -9,4 +9,10 @@ public class Square {
 		this.piece = piece;
 	}
 
+	public String toString() {
+		if (piece == null)
+			return "";
+		return piece.getSymbol();
+	}
+
 }

@@ -7,4 +7,15 @@ public class Knight extends Piece {
 		// TODO Auto-generated constructor stub
 	}
 
+	String getLetterSymbol() {
+		return "N";
+	}
+
+	String getSymbol() {
+		if (getColor() == Color.WHITE) {
+			return "♘";
+		}
+		return "♞";
+	}
+
 }
