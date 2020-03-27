@@ -30,4 +30,8 @@ public abstract class Piece {
 		return color;
 	}
 
+	boolean isValidMove(Square start, Square destination) {
+		return true;
+	}
+
 }

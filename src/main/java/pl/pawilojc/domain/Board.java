@@ -26,32 +26,32 @@ public class Board {
 	}
 
 	void initializeSquares(Color color) {
-		int piecesRank = -1;
-		int pawnsRank = -1;
+		int piecesFile = -1;
+		int pawnsFile = -1;
 		if (color == null) {
 			for (int i = 0; i < squares.length; i++) {
 				for (int j = 0; j < squares[i].length; j++) {
-					squares[i][j] = new Square(null);
+					squares[i][j] = new Square(null, i, j);
 				}
 			}
 		} else {
 			if (color == Color.WHITE) {
-				piecesRank = 7;
-				pawnsRank = 6;
+				piecesFile = 7;
+				pawnsFile = 6;
 			} else if (color == Color.BLACK) {
-				piecesRank = 0;
-				pawnsRank = 1;
+				piecesFile = 0;
+				pawnsFile = 1;
 			}
-			squares[piecesRank][0] = new Square(new Rook(color));
-			squares[piecesRank][1] = new Square(new Knight(color));
-			squares[piecesRank][2] = new Square(new Bishop(color));
-			squares[piecesRank][3] = new Square(new Queen(color));
-			squares[piecesRank][4] = new Square(new King(color));
-			squares[piecesRank][5] = new Square(new Bishop(color));
-			squares[piecesRank][6] = new Square(new Knight(color));
-			squares[piecesRank][7] = new Square(new Rook(color));
-			for (int k = 0; k < squares[pawnsRank].length; k++) {
-				squares[pawnsRank][k] = new Square(new Pawn(color));
+			squares[piecesFile][0] = new Square(new Rook(color), piecesFile, 0);
+			squares[piecesFile][1] = new Square(new Knight(color), piecesFile, 1);
+			squares[piecesFile][2] = new Square(new Bishop(color), piecesFile, 2);
+			squares[piecesFile][3] = new Square(new Queen(color), piecesFile, 3);
+			squares[piecesFile][4] = new Square(new King(color), piecesFile, 4);
+			squares[piecesFile][5] = new Square(new Bishop(color), piecesFile, 5);
+			squares[piecesFile][6] = new Square(new Knight(color), piecesFile, 6);
+			squares[piecesFile][7] = new Square(new Rook(color), piecesFile, 7);
+			for (int k = 0; k < squares[pawnsFile].length; k++) {
+				squares[pawnsFile][k] = new Square(new Pawn(color), pawnsFile, k);
 			}
 		}
 	}
@@ -63,5 +63,12 @@ public class Board {
 			}
 			System.out.println();
 		}
+		for (Square[] files : squares) {
+			for (Square square : files) {
+				System.out.print(square.getFile() + "" + square.getRank() + " ");
+			}
+			System.out.println();
+		}
+
 	}
 }
