@@ -8,6 +8,7 @@ public class FowChessApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(FowChessApplication.class, args);
+
 	}
 
 	// ☧
