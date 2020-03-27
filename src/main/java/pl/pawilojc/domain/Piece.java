@@ -31,7 +31,16 @@ public abstract class Piece {
 	}
 
 	boolean isValidMove(Square start, Square destination) {
+		if (start.getPiece() == null)
+			return false;
+		if (start.equals(destination))
+			return false;
+		if (destination.getPiece() == null)
+			return true;
+		if (start.getPiece().getColor().equals(destination.getPiece().getColor()))
+			return false;
 		return true;
+
 	}
 
 }

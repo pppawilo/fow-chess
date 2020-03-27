@@ -63,12 +63,25 @@ public class Board {
 			}
 			System.out.println();
 		}
-		for (Square[] files : squares) {
-			for (Square square : files) {
-				System.out.print(square.getFile() + "" + square.getRank() + " ");
-			}
-			System.out.println();
-		}
+		System.out.println();
 
 	}
+
+	boolean movePiece(int startFile, int startRank, int destinationFile, int destinationRank) {
+		Square start = squares[startFile][startRank];
+		Square destination = squares[destinationFile][destinationRank];
+		if (start.getPiece() == null)
+			return false;
+		if (start.getPiece().isValidMove(start, destination)) {
+			destination.setPiece(start.getPiece());
+			start.setPiece(null);
+			return true;
+		}
+		return false;
+	}
+
+	public Square[][] getSquares() {
+		return squares;
+	}
+
 }

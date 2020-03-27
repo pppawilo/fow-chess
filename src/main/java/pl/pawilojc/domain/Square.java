@@ -3,8 +3,8 @@ package pl.pawilojc.domain;
 public class Square {
 
 	private Piece piece;
-	private int file;
-	private int rank;
+	private final int file;
+	private final int rank;
 
 	public Square(Piece piece, int file, int rank) {
 		super();
@@ -15,7 +15,7 @@ public class Square {
 
 	public String toString() {
 		if (piece == null)
-			return "";
+			return getRank() + "";
 		return piece.getSymbol();
 	}
 
@@ -25,6 +25,14 @@ public class Square {
 
 	public int getRank() {
 		return rank;
+	}
+
+	public Piece getPiece() {
+		return piece;
+	}
+
+	public void setPiece(Piece piece) {
+		this.piece = piece;
 	}
 
 }
