@@ -33,7 +33,7 @@ public abstract class Piece {
 			return false;
 		if (destination.getPiece() == null)
 			return true;
-		return (start.getPiece().getColor().equals(destination.getPiece().getColor()));
-	}
+		return !start.getPiece().getColor().equals(destination.getPiece().getColor());
 
+	}
 }

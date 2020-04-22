@@ -20,11 +20,11 @@ public class Square {
 	}
 
 	public int getRank() {
-		return file;
+		return rank;
 	}
 
 	public int getFile() {
-		return rank;
+		return file;
 	}
 
 	public Piece getPiece() {
