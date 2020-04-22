@@ -1,5 +1,7 @@
 package pl.pawilojc.domain;
 
+import java.util.Scanner;
+
 public class Game {
 
 	private Color turn;
@@ -12,33 +14,26 @@ public class Game {
 	public static void main(String[] args) {
 		Board board = new Board();
 		board.printToSystemOut();
-		int startFile = 0;
 		int startRank = 0;
-		int destinationFile = 3;
+		int startFile = 0;
 		int destinationRank = 0;
-		board.movePiece(startFile, startRank, destinationFile, destinationRank);
-		board.printToSystemOut();
+		int destinationFile = 0;
 
-		startFile = 0;
-		startRank = 0;
-		destinationFile = 4;
-		destinationRank = 0;
-		board.movePiece(startFile, startRank, destinationFile, destinationRank);
-		board.printToSystemOut();
+		Scanner in = new Scanner(System.in);
 
-		startFile = 0;
-		startRank = 1;
-		destinationFile = 2;
-		destinationRank = 1;
-		board.movePiece(startFile, startRank, destinationFile, destinationRank);
-		board.printToSystemOut();
+		do {
+			System.out.println("move: ");
 
-		startFile = 0;
-		startRank = 1;
-		destinationFile = 0;
-		destinationRank = 1;
-		board.movePiece(startFile, startRank, destinationFile, destinationRank);
-		board.printToSystemOut();
+			startRank = in.nextInt();
+			startFile = in.nextInt();
+
+			destinationRank = in.nextInt();
+			destinationFile = in.nextInt();
+			board.movePiece(startRank, startFile, destinationRank, destinationFile);
+			board.printToSystemOut();
+		} while (startRank != -1);
+
+		in.close();
 
 	}
 

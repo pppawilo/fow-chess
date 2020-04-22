@@ -3,14 +3,14 @@ package pl.pawilojc.domain;
 public class Square {
 
 	private Piece piece;
-	private final int file;
 	private final int rank;
+	private final int file;
 
-	public Square(Piece piece, int file, int rank) {
+	public Square(Piece piece, int rank, int file) {
 		super();
 		this.piece = piece;
-		this.file = file;
 		this.rank = rank;
+		this.file = file;
 	}
 
 	public String toString() {
@@ -19,11 +19,11 @@ public class Square {
 		return piece.getSymbol();
 	}
 
-	public int getFile() {
+	public int getRank() {
 		return file;
 	}
 
-	public int getRank() {
+	public int getFile() {
 		return rank;
 	}
 

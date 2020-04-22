@@ -26,8 +26,8 @@ public class Board {
 	}
 
 	void initializeSquares(Color color) {
-		int piecesFile = -1;
-		int pawnsFile = -1;
+		int piecesRank = -1;
+		int pawnsRank = -1;
 		if (color == null) {
 			for (int i = 0; i < squares.length; i++) {
 				for (int j = 0; j < squares[i].length; j++) {
@@ -36,22 +36,22 @@ public class Board {
 			}
 		} else {
 			if (color == Color.WHITE) {
-				piecesFile = 7;
-				pawnsFile = 6;
+				piecesRank = 7;
+				pawnsRank = 6;
 			} else if (color == Color.BLACK) {
-				piecesFile = 0;
-				pawnsFile = 1;
+				piecesRank = 0;
+				pawnsRank = 1;
 			}
-			squares[piecesFile][0] = new Square(new Rook(color), piecesFile, 0);
-			squares[piecesFile][1] = new Square(new Knight(color), piecesFile, 1);
-			squares[piecesFile][2] = new Square(new Bishop(color), piecesFile, 2);
-			squares[piecesFile][3] = new Square(new Queen(color), piecesFile, 3);
-			squares[piecesFile][4] = new Square(new King(color), piecesFile, 4);
-			squares[piecesFile][5] = new Square(new Bishop(color), piecesFile, 5);
-			squares[piecesFile][6] = new Square(new Knight(color), piecesFile, 6);
-			squares[piecesFile][7] = new Square(new Rook(color), piecesFile, 7);
-			for (int k = 0; k < squares[pawnsFile].length; k++) {
-				squares[pawnsFile][k] = new Square(new Pawn(color), pawnsFile, k);
+			squares[piecesRank][0] = new Square(new Rook(color), piecesRank, 0);
+			squares[piecesRank][1] = new Square(new Knight(color), piecesRank, 1);
+			squares[piecesRank][2] = new Square(new Bishop(color), piecesRank, 2);
+			squares[piecesRank][3] = new Square(new Queen(color), piecesRank, 3);
+			squares[piecesRank][4] = new Square(new King(color), piecesRank, 4);
+			squares[piecesRank][5] = new Square(new Bishop(color), piecesRank, 5);
+			squares[piecesRank][6] = new Square(new Knight(color), piecesRank, 6);
+			squares[piecesRank][7] = new Square(new Rook(color), piecesRank, 7);
+			for (int k = 0; k < squares[pawnsRank].length; k++) {
+				squares[pawnsRank][k] = new Square(new Pawn(color), pawnsRank, k);
 			}
 		}
 	}
@@ -67,9 +67,9 @@ public class Board {
 
 	}
 
-	boolean movePiece(int startFile, int startRank, int destinationFile, int destinationRank) {
-		Square start = squares[startFile][startRank];
-		Square destination = squares[destinationFile][destinationRank];
+	boolean movePiece(int startRank, int startFile, int destinationRank, int destinationFile) {
+		Square start = squares[startRank][startFile];
+		Square destination = squares[destinationRank][destinationFile];
 		if (start.getPiece() == null)
 			return false;
 		if (start.getPiece().isValidMove(start, destination)) {
