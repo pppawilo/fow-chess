@@ -8,10 +8,7 @@ public class Rook extends Piece {
 	}
 
 	String getSymbol() {
-		if (getColor() == Color.WHITE) {
-			return "♖";
-		}
-		return "♜";
+		return (getColor() == Color.WHITE) ? "♖" : "♜";
 	}
 
 }

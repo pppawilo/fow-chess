@@ -28,8 +28,8 @@ public class Game {
 
 		startFile = 0;
 		startRank = 1;
-		destinationFile = 0;
-		destinationRank = 2;
+		destinationFile = 2;
+		destinationRank = 1;
 		board.movePiece(startFile, startRank, destinationFile, destinationRank);
 		board.printToSystemOut();
 
