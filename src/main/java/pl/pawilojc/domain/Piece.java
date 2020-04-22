@@ -15,11 +15,7 @@ public abstract class Piece {
 	}
 
 	String getColorSymbol() {
-		if (getColor() == Color.WHITE)
-			return "□";
-		else
-			return "■";
-
+		return (getColor() == Color.WHITE) ? "□" : "■";
 	}
 
 	String getSymbol() {
@@ -37,10 +33,7 @@ public abstract class Piece {
 			return false;
 		if (destination.getPiece() == null)
 			return true;
-		if (start.getPiece().getColor().equals(destination.getPiece().getColor()))
-			return false;
-		return true;
-
+		return (start.getPiece().getColor().equals(destination.getPiece().getColor()));
 	}
 
 }
