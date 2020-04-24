@@ -57,8 +57,8 @@ public class Board {
 	}
 
 	void printToSystemOut() {
-		for (Square[] files : squares) {
-			for (Square square : files) {
+		for (Square[] ranks : squares) {
+			for (Square square : ranks) {
 				System.out.print(square.toString() + " ");
 			}
 			System.out.println();
@@ -82,6 +82,25 @@ public class Board {
 
 	public Square[][] getSquares() {
 		return squares;
+	}
+
+	public void printValidMovesFromStart(int startRank, int startFile) {
+		Square start = squares[startRank][startFile];
+		for (Square[] ranks : squares) {
+			for (Square square : ranks) {
+				if (start.equals(square)) {
+					System.out.print(square.toString() + " ");
+				} else {
+					if (start.getPiece().isValidMove(start, square)) {
+						System.out.print("⚽ ");
+					} else {
+						System.out.print("⚾ ");
+					}
+				}
+			}
+			System.out.println();
+		}
+		System.out.println();
 	}
 
 }

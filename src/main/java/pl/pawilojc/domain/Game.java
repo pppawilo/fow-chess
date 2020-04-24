@@ -26,6 +26,7 @@ public class Game {
 
 			startRank = in.nextInt();
 			startFile = in.nextInt();
+			board.printValidMovesFromStart(startRank, startFile);
 
 			destinationRank = in.nextInt();
 			destinationFile = in.nextInt();

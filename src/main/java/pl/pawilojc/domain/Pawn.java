@@ -15,7 +15,6 @@ public class Pawn extends Piece {
 	@Override
 	boolean isValidMove(Square start, Square destination) {
 		if (!super.isValidMove(start, destination)) {
-			System.out.println("super false");
 			return false;
 		}
 
@@ -23,15 +22,12 @@ public class Pawn extends Piece {
 				|| ((start.getRank() + 1 == destination.getRank())
 						&& (start.getPiece().getColor().equals(Color.BLACK)))) {
 			if (destination.getPiece() == null) {
-				System.out.println("get piece == null");
 				return (start.getFile() == destination.getFile());
 			} else if (!start.getPiece().getColor().equals(destination.getPiece().getColor())) {
-				System.out.println("math abs");
 				return (Math.abs(start.getFile() - destination.getFile()) == 1);
 			}
 			return false;
 		}
-		System.out.println("false end");
 		return false;
 
 	}
