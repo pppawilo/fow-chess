@@ -26,7 +26,7 @@ public abstract class Piece {
 		return color;
 	}
 
-	boolean isValidMove(Square start, Square destination) {
+	boolean isValidMove(Square start, Square destination, Square[][] squares) {
 		if (start.getPiece() == null)
 			return false;
 		if (start.equals(destination))

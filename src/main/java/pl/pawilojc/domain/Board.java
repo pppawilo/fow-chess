@@ -72,7 +72,7 @@ public class Board {
 		Square destination = squares[destinationRank][destinationFile];
 		if (start.getPiece() == null)
 			return false;
-		if (start.getPiece().isValidMove(start, destination)) {
+		if (start.getPiece().isValidMove(start, destination, squares)) {
 			destination.setPiece(start.getPiece());
 			start.setPiece(null);
 			return true;
@@ -91,7 +91,7 @@ public class Board {
 				if (start.equals(square)) {
 					System.out.print(square.toString() + " ");
 				} else {
-					if (start.getPiece().isValidMove(start, square)) {
+					if (start.getPiece().isValidMove(start, square, squares)) {
 						System.out.print("⚽ ");
 					} else {
 						System.out.print("⚾ ");

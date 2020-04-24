@@ -13,10 +13,16 @@ public class Pawn extends Piece {
 	}
 
 	@Override
-	boolean isValidMove(Square start, Square destination) {
-		if (!super.isValidMove(start, destination)) {
+	boolean isValidMove(Square start, Square destination, Square[][] squares) {
+		if (!super.isValidMove(start, destination, squares)) {
 			return false;
 		}
+		if (start.getPiece().getColor().equals(Color.BLACK) && (start.getRank() == 1) && (destination.getRank() == 3))
+			return ((squares[start.getRank() + 1][start.getFile()].getPiece() == null)
+					&& (destination.getPiece() == null) && (start.getFile() == destination.getFile()));
+		if (start.getPiece().getColor().equals(Color.WHITE) && (start.getRank() == 6) && (destination.getRank() == 4))
+			return ((squares[start.getRank() - 1][start.getFile()].getPiece() == null)
+					&& (destination.getPiece() == null) && (start.getFile() == destination.getFile()));
 
 		if (((start.getRank() - 1 == destination.getRank()) && start.getPiece().getColor().equals(Color.WHITE))
 				|| ((start.getRank() + 1 == destination.getRank())
